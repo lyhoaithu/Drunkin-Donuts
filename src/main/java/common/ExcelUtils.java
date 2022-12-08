@@ -21,8 +21,8 @@ public String[][] getDataFromExcel(String sheetName) throws IOException{
  Row row;
  Cell cell;
  
-	File file= new File("D:\\AutomationTest\\02Projects\\DrunkinDonuts\\TestData\\Test_Data.xlsx");
-	FileInputStream inputStream=  new FileInputStream(file);
+	File file= new File("TestData/Test_Data.xlsx");
+	FileInputStream inputStream=  new FileInputStream(file.getAbsolutePath());
 	workbook=new XSSFWorkbook(inputStream);
 	
 	//get Sheet

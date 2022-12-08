@@ -2,6 +2,7 @@ package common;
 
 import static org.testng.Assert.assertEquals;
 
+import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -26,11 +27,13 @@ public class TestBase {
 	public WebDriver driver;
 
 	public void openBrowser(String browserName) {
+		File file01= new File("driver/msedgedriver.exe");
+		File file02= new File("driver/geckodriver.exe");
 		if (browserName.equalsIgnoreCase("edge")) {
-			System.setProperty("webdriver.edge.driver", "D:\\AutomationTest\\01Tools\\msedgedriver.exe");
+			System.setProperty("webdriver.edge.driver",file01.getAbsolutePath());
 			driver = new EdgeDriver();
 		} else if (browserName.equalsIgnoreCase("firefox")) {
-			System.setProperty("webdriver.gecko.driver", "D:\\AutomationTest\\02Projects\\DrunkinDonuts\\driver\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", file02.getAbsolutePath());
 			driver = new FirefoxDriver();
 		}
 		driver.manage().window().maximize();
